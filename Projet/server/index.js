@@ -33,6 +33,12 @@ mongoose.connection.once('open', function() {
     app.use(route, controller(app, route));
   });
 
+  //pour test
+  app.use('/hello', function(req, res, next){
+    res.send("Hello api user favorite");
+    next();
+  });
+
   console.log('Listening on port 3000...');
   app.listen(3000);
 });
