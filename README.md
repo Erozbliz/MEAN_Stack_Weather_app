@@ -24,9 +24,10 @@ et faire "mongod.exe"<br />
 C:\Program Files\MongoDB\Server\3.2\bin<br />
 et faire "mongod.exe"<br />
 - Faire un : "node index.js" pour lancer simplement le serveur(dans le dossier serveur)<br /><br />
-- Faire un : "npm install -g yo"
-- Faire un : "npm install -g generator-angular"
-- Faire un : "bower install --save restangular"  -> option restangular
+- Pour client (Pas encore testé)
+<br />Faire un : "npm install -g yo"
+<br />Faire un : "npm install -g generator-angular"
+<br />Faire un : "bower install --save restangular"  -> option restangular
 
 - Faire un : "grunt serve" pour lancer le serveur + client(dans le dossier client)<br />
 
