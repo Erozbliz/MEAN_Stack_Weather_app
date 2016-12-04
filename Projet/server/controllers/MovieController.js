@@ -6,6 +6,11 @@ module.exports = function(app, route) {
 
   // Return middleware.
   return function(req, res, next) {
+
+	//var movie = new Movie();      // create a new instance of the Bear model
+    //movie.title = req.body.title;  // set the bears name (comes from the request)
+
+
     next();
   };
 };

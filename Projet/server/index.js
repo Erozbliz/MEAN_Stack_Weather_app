@@ -35,7 +35,8 @@ mongoose.connection.once('open', function() {
 
   //pour test
   app.use('/hello', function(req, res, next){
-    res.send("Hello api user favorite");
+    //res.send("Hello api user favorite");
+    res.json({ message: 'Hello api favorite'});   
     next();
   });
 
