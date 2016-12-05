@@ -8,6 +8,8 @@ app.use(bodyParser.json());
 
 Genre =require('./models/genre');
 Book =require('./models/book');
+User =require('./models/user');
+
 
 // Connect to Mongoose
 mongoose.connect('mongodb://localhost/test');
@@ -105,6 +107,58 @@ app.delete('/api/books/:_id', (req, res) => {
 			throw err;
 		}
 		res.json(book);
+	});
+});
+
+
+
+//users
+app.get('/api/users', (req, res) => {
+	User.getUsers((err, users) => {
+		if(err){
+			throw err;
+		}
+		res.json(users);
+	});
+});
+
+app.get('/api/users/:_id', (req, res) => {
+	User.getUserById(req.params._id, (err, user) => {
+		if(err){
+			throw err;
+		}
+		res.json(user);
+	});
+});
+
+app.post('/api/users', (req, res) => {
+	var user = req.body;
+	User.addUser(user, (err, user) => {
+		if(err){
+			throw err;
+		}
+		res.json(user);
+	});
+});
+
+app.put('/api/users/:_id', (req, res) => {
+	var id = req.params._id;
+	var user = req.body;
+	User.updateUser(id, user, {}, (err, user) => {
+		if(err){
+			throw err;
+		}
+		res.json(user);
+	});
+});
+
+app.delete('/api/users/:_id', (req, res) => {
+	var id = req.params._id;
+	User.removeUser(id, (err, user) => {
+		if(err){
+			throw err;
+		}
+		res.json(user);
 	});
 });
 
