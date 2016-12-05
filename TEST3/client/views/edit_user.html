@@ -1,0 +1,25 @@
+<a href="#/users">Go Back</a>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Edit User</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+      <form ng-submit="updateUser()" ng-init="getUser()">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" ng-model="user.name" placeholder="Name">
+        </div>
+        </div>
+        <div class="form-group">
+          <label>Favoris</label>
+          <input type="text" class="form-control" ng-model="user.fav" placeholder="Favoris">
+        </div>
+       
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>
