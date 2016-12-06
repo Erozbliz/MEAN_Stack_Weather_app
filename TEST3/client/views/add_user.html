@@ -9,7 +9,11 @@
       <form ng-submit="addUser()">
         <div class="form-group">
           <label>Name</label>
-          <input type="text" class="form-control" ng-model="user.name" placeholder="Title">
+          <input type="text" class="form-control" ng-model="user.name" placeholder="User">
+        </div>
+        <div class="form-group">
+          <label>Fav</label>
+          <input type="text" class="form-control" ng-model="user.fav" placeholder="Fav">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
