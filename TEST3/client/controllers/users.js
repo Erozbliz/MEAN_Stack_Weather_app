@@ -87,7 +87,24 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
           console.log('error: ' + data);
         });
     };
-    //$scope.search();
+
+
+    $scope.loginUser = function(){
+		var id = angular.copy($scope.myid);
+		var loginName = "";
+		var request = $http.get('/api/users/'+id)
+		.success(function(response){
+			loginName = response.name;
+			console.log(loginName);
+		})
+        .error(function(response) {
+          console.log('error: ' + response);
+        });
+        request.on('error', function(err) {
+		   console.log('errerrerr');
+		});
+		request.end();
+	}
 
 	
 }]);

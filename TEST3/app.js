@@ -126,8 +126,9 @@ app.get('/api/users/:_id', (req, res) => {
 	User.getUserById(req.params._id, (err, user) => {
 		if(err){
 			throw err;
+		}else{
+			res.json(user);
 		}
-		res.json(user);
 	});
 });
 

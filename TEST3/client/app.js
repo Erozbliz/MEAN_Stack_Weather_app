@@ -37,6 +37,10 @@ myApp.config(function($routeProvider){
 		controller:'UsersController',
 		templateUrl: 'views/edit_user.html'
 	})
+	.when('/users/login',{
+		controller:'UsersController',
+		templateUrl: 'views/login_user.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});

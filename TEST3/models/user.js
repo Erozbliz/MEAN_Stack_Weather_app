@@ -15,13 +15,25 @@ const userSchema = mongoose.Schema({
 const User = module.exports = mongoose.model('User', userSchema);
 
 // Get Users
-module.exports.getUsers = (callback, limit) => {
+module.exports.getUsers = (callback, limit,err) => {
 	User.find(callback).limit(limit);
 }
 
 // Get User
 module.exports.getUserById = (id, callback) => {
-	User.findById(id, callback);
+	User.findById(id, callback); //true
+	/* User.findById(id, function(err, brother, res) {
+
+    });*/
+    //User.findById( {_id : id }, function(err, callback){
+    //console.log(callback.name);  
+    // Will show your array of Menu Categories
+    // No further queries required
+    /*User.findOne({ _id: id }, function ( err, user) {
+    	err.send(user);
+    });*/
+
+
 }
 
 // Add User
