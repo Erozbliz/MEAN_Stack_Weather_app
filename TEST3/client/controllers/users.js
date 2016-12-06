@@ -25,6 +25,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 	}
 
 	$scope.updateUser = function(){
+		console.log('updateUser');
 		var id = $routeParams.id;
 		$http.put('/api/users/'+id, $scope.user).success(function(response){
 			window.location.href='#/users';

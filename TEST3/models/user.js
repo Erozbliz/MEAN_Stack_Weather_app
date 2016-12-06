@@ -43,6 +43,7 @@ module.exports.addUser = (user, callback) => {
 
 // Update User
 module.exports.updateUser = (id, user, options, callback) => {
+	console.log('updateUser');
 	var query = {_id: id};
 	var update = {
 		name: user.name,
