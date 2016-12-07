@@ -33,6 +33,31 @@ module.exports.getUserById = (id, callback) => {
     	err.send(user);
     });*/
 
+    /*User.findById(id, function(error, user) {
+      //assert.ifError(error);
+      //assert.ok(doc);
+      //console.log(JSON.stringify(doc));
+      console.log(id);
+      console.log('done');
+     // process.exit(0);
+    });*/
+
+  /*  User.findOne({ '_id': '5844e7996326c0fb6cda1159' },  function (err, user, next) {
+	  if (err) return handleError(err);
+	  if(user) {
+	  	console.log('%s %s', user.name, user.fav);
+	  }else{
+	  	console.log("Pb");
+	  }
+	  //next();
+	
+	});*/
+
+
+
+
+
+
 
 }
 

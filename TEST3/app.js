@@ -122,15 +122,36 @@ app.get('/api/users', (req, res) => {
 	});
 });
 
-app.get('/api/users/:_id', (req, res) => {
+app.get('/api/users/:_id', (req, res, callback) => {
 	User.getUserById(req.params._id, (err, user) => {
 		if(err){
-			throw err;
+			console.log('error id inexistant');
+	  		res.json("id inexistant");
 		}else{
 			res.json(user);
 		}
 	});
+	//User.findById(req.params._id, callback);
 });
+
+//pour test
+/*
+app.get('/hello', function(req, res, next){
+	User.findOne({ '_id': '5844e7996326c0fb6cda1159r' },  function (err, user, next) {
+	  if (err){
+	  	console.log('error');
+	  	res.json("id inexistant ");
+	  } else if(user) {
+	  	console.log('%s %s', user.name, user.fav);
+	  	res.json(user);
+	  }else{
+	  	console.log("Pb");
+	  }
+	});
+});
+*/
+
+
 
 app.post('/api/users', (req, res) => {
 	var user = req.body;
