@@ -3,6 +3,7 @@ var myApp = angular.module('myApp');
 myApp.controller('UsersController', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
 	console.log('UsersController loaded...');
 
+
 	$scope.getUsers = function(){
 		$http.get('/api/users').success(function(response){
 			console.log(response);
@@ -20,8 +21,37 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 	$scope.addUser = function(){
 		console.log($scope.user);
 		$http.post('/api/users/', $scope.user).success(function(response){
+			console.log("Inscription de");
+			console.log(response);
+			sessionStorage.setItem("_id_session",response._id); //On sauvgarde
+			sessionStorage.setItem("name_session",response.name); //On sauvgarde
 			window.location.href='#/users';
 		});
+	}
+
+	$scope.loginUser = function(){
+		var id = angular.copy($scope.myid);
+		console.log($scope.user);
+		$http.get('/api/users/'+id)
+		.success(function(response){
+			loginId = response._id;
+			if(loginId==id){
+				console.log("ok "+loginId);
+				sessionStorage.setItem("_id_session",response._id); //On sauvgarde
+				sessionStorage.setItem("name_session",response.name); //On sauvgarde
+				boleanvar=true;
+				//alert("redirect");
+	    		window.location.href='#/users';
+			}else{
+				console.log(response);
+
+			}
+		})
+	    .error(function(response) {
+	      console.log('error: ' + response);
+	    });
+
+
 	}
 
 	$scope.updateUser = function(){
@@ -90,22 +120,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
     };
 
 
-    $scope.loginUser = function(){
-		var id = angular.copy($scope.myid);
-		var loginName = "";
-		var request = $http.get('/api/users/'+id)
-		.success(function(response){
-			loginName = response.name;
-			console.log(loginName);
-		})
-        .error(function(response) {
-          console.log('error: ' + response);
-        });
-        request.on('error', function(err) {
-		   console.log('errerrerr');
-		});
-		request.end();
-	}
+
 
 	
 }]);

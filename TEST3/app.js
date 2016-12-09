@@ -151,6 +151,21 @@ app.get('/hello', function(req, res, next){
 });
 */
 
+//Pour la session (pour la barre de navigation)
+app.get('/api/isLogged/:_id', function(req, res, next){
+	User.findOne({ '_id': req.params._id },  function (err, user, next) {
+	  if (err){
+	  	console.log('error');
+	  	res.json("id inexistant");
+	  } else if(user) {
+	  	console.log('Utilisateur %s %s est connecté', user.name, user.fav);
+	  	res.json(user);
+	  }else{
+	  	console.log("Pb");
+	  }
+	});
+});
+
 
 
 app.post('/api/users', (req, res) => {
@@ -168,7 +183,7 @@ app.put('/api/users/:_id', (req, res) => {
 	var user = req.body;
 	User.updateUser(id, user, {}, (err, user) => {
 		if(err){
-			throw err;
+			res.json("id inexistant ");
 		}
 		res.json(user);
 	});
@@ -178,7 +193,7 @@ app.delete('/api/users/:_id', (req, res) => {
 	var id = req.params._id;
 	User.removeUser(id, (err, user) => {
 		if(err){
-			throw err;
+			res.json("id inexistant ");
 		}
 		res.json(user);
 	});
