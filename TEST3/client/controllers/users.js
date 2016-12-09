@@ -23,8 +23,9 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 		$http.post('/api/users/', $scope.user).success(function(response){
 			console.log("Inscription de");
 			console.log(response);
-			sessionStorage.setItem("_id_session",response._id); //On sauvgarde
-			sessionStorage.setItem("name_session",response.name); //On sauvgarde
+			sessionStorage.setItem("_id_session",response._id); //On sauvegarde
+			sessionStorage.setItem("name_session",response.name); //On sauvegarde
+			sessionStorage.setItem("fav_session",response.fav); //On sauvegarde
 			window.location.href='#/users';
 		});
 	}
@@ -37,8 +38,9 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 			loginId = response._id;
 			if(loginId==id){
 				console.log("ok "+loginId);
-				sessionStorage.setItem("_id_session",response._id); //On sauvgarde
-				sessionStorage.setItem("name_session",response.name); //On sauvgarde
+				sessionStorage.setItem("_id_session",response._id); //On sauvegarde
+				sessionStorage.setItem("name_session",response.name); //On sauvegarde
+				sessionStorage.setItem("fav_session",response.fav); //On sauvegarde
 				boleanvar=true;
 				//alert("redirect");
 	    		window.location.href='#/users';
@@ -55,9 +57,17 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 	}
 
 	$scope.updateUser = function(){
-		console.log('updateUser');
+		console.log('updateUse++++r');
 		var id = $routeParams.id;
+		sessionStorage.clear();
 		$http.put('/api/users/'+id, $scope.user).success(function(response){
+
+			sessionStorage.setItem("_id_session",response._id); //On sauvegarde
+			sessionStorage.setItem("name_session",response.name); //On sauvegarde
+			sessionStorage.setItem("fav_session",response.fav); //On sauvegarde
+			sessionStorage.setItem("lol","3333lol"); //On sauvegarde
+
+			alert(response.fav);
 			window.location.href='#/users';
 		});
 	}
@@ -86,9 +96,17 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 
     $scope.getAllWeather = function() {
     	listCity = ['Quebec', "Montreal"];
+    	var mystr = sessionStorage.getItem("fav_session");
+    	var arrayListCity = [];
+    	if(mystr!=null){
+    		 arrayListCity = mystr.split(':::');
+
+    	}else{
+    		arrayListCity =listCity;
+    	}
 		alldataweather = [];
-		for (i = 0; i < listCity.length; i++) {
-		    $http.get('http://api.openweathermap.org/data/2.5/weather?q='+listCity[i]+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
+		for (i = 0; i < arrayListCity.length; i++) {
+		    $http.get('http://api.openweathermap.org/data/2.5/weather?q='+arrayListCity[i]+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
 	        .success(function(data) {
 	          //console.log(data);
 	          alldataweather.push(data);
@@ -118,6 +136,11 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
           console.log('error: ' + data);
         });
     };
+
+
+    function parseFav(strFav){
+
+    }
 
 
 
