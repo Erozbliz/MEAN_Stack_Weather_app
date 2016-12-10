@@ -23,9 +23,9 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 		$http.post('/api/users/', $scope.user).success(function(response){
 			console.log("Inscription de");
 			console.log(response);
-			sessionStorage.setItem("_id_session",response._id); //On sauvegarde
-			sessionStorage.setItem("name_session",response.name); //On sauvegarde
-			sessionStorage.setItem("fav_session",response.fav); //On sauvegarde
+			localStorage.setItem("_id_session",response._id); //On sauvegarde
+			localStorage.setItem("name_session",response.name); //On sauvegarde
+			localStorage.setItem("fav_session",response.fav); //On sauvegarde
 			window.location.href='#/users';
 		});
 	}
@@ -38,14 +38,14 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 			loginId = response._id;
 			if(loginId==id){
 				console.log("ok "+loginId);
-				sessionStorage.setItem("_id_session",response._id); //On sauvegarde
-				sessionStorage.setItem("name_session",response.name); //On sauvegarde
-				sessionStorage.setItem("fav_session",response.fav); //On sauvegarde
+				localStorage.setItem("_id_session",response._id); //On sauvegarde
+				localStorage.setItem("name_session",response.name); //On sauvegarde
+				localStorage.setItem("fav_session",response.fav); //On sauvegarde
 				boleanvar=true;
 				//alert("redirect");
 	    		window.location.href='#/users';
 			}else{
-				console.log(response);
+				console.log("erreur id"+response);
 
 			}
 		})
@@ -57,17 +57,16 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 	}
 
 	$scope.updateUser = function(){
-		console.log('updateUse++++r');
+		//console.log('updateUser');
 		var id = $routeParams.id;
-		sessionStorage.clear();
+		localStorage.clear();
 		$http.put('/api/users/'+id, $scope.user).success(function(response){
 
-			sessionStorage.setItem("_id_session",response._id); //On sauvegarde
-			sessionStorage.setItem("name_session",response.name); //On sauvegarde
-			sessionStorage.setItem("fav_session",response.fav); //On sauvegarde
-			sessionStorage.setItem("lol","3333lol"); //On sauvegarde
+			localStorage.setItem("_id_session",response._id); //On sauvegarde
+			localStorage.setItem("name_session",$scope.user.name); //On sauvegarde
+			localStorage.setItem("fav_session",$scope.user.fav); //On sauvegarde
 
-			alert(response.fav);
+			//alert(response.fav);
 			window.location.href='#/users';
 		});
 	}
@@ -96,10 +95,10 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 
     $scope.getAllWeather = function() {
     	listCity = ['Quebec', "Montreal"];
-    	var mystr = sessionStorage.getItem("fav_session");
+    	var mystr = localStorage.getItem("fav_session");
     	var arrayListCity = [];
     	if(mystr!=null){
-    		 arrayListCity = mystr.split(':::');
+    		 arrayListCity = mystr.split(',');
 
     	}else{
     		arrayListCity =listCity;
@@ -141,6 +140,9 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
     function parseFav(strFav){
 
     }
+
+    $scope.myUserSession = localStorage.getItem("name_session");
+
 
 
 

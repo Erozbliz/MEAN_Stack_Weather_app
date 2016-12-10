@@ -7,6 +7,10 @@ myApp.config(function($routeProvider){
 		controller:'UsersController',
 		templateUrl: 'views/users.html'
 	})
+	.when('/#', {
+		controller:'BooksController',
+		templateUrl: 'views/users.html'
+	})
 	.when('/books', {
 		controller:'BooksController',
 		templateUrl: 'views/books.html'

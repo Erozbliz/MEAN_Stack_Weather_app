@@ -2,7 +2,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Chrome, Firefox OS, Opera and Vivaldi -->
+  <meta name="theme-color" content="#009688">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#009688">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#009688">
+  <meta name="author" content=" Weather Online">
+  <meta name="description" content="Weather Online" />      
+  <meta name="keywords" content="Weather Online">
+
 	<title>Weather favorites</title>
+
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <!-- Icon fav mobile  -->
+  <link rel="icon" type="image/png" href="fav_mobile.png" sizes="192x192">
+
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,14 +31,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Weather favorites</a>
+          <a class="navbar-brand" href="/#/">Weather favorites</a>
         </div>
         <div  id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#/users/login" ng-show="!isLogged()">Connexion</a></li>
             <li><a href="#/users/add" ng-show="!isLogged()">Inscription</a></li>
             <li><a href="#/users/logout" ng-click="logOut()" ng-show="isLogged()">Deconnexion</a></li>
-            <li><a href="#/books/add">Add Book</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -1,3 +1,72 @@
+<div class="panel panel-success" ng-show="myUserSession != null">
+  <div class="panel-heading">
+    <h3 class="panel-title">Bonjour {{myUserSession}}</h3>
+  </div>
+</div>
+
+<div class="panel panel-default" ng-init="getUsers()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Température pour une ville</h3>
+  </div>
+  <div class="panel-body">
+    <div>
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="searchCity"></label>
+          <input type="text" class="form-control" id="searchCity" placeholder="Sherbrooke" ng-model="searchCity">
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="search()">Afficher Météo</button>
+      </form>
+    </div>
+    <div class="row">
+        <div ng-init="getWeather()">
+          <div class="col-md-6">
+            <div class="well">
+              <h4>{{name}}</h4>
+              <p>Température Actuelle {{main.temp}}</p>
+              <p>Pression Actuelle {{main.pressure}}</p>
+              <p>Humidité {{main.humidity}}</p>
+              <p>Tempéraure min {{main.temp_min}}</p>
+              <p>Tempéraure max {{main.temp_max}}</p>
+              <p>Vitesse du vent {{wind.speed}}</p>
+              <p>Température du vent {{wind.deg}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-default" ng-init="getUsers()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Température pour une liste de villes</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div ng-init="getAllWeather()">
+        <div ng-repeat="alldataweather in alldataweathers">
+          <div class="col-md-4">
+            <div class="well">
+              <h4>{{alldataweather.name}}</h4>
+              <p>Température Actuelle {{alldataweather.main.temp}}</p>
+              <p>Pression Actuelle {{alldataweather.main.pressure}}</p>
+              <p>Humidité {{alldataweather.main.humidity}}</p>
+              <p>Tempéraure min {{alldataweather.main.temp_min}}</p>
+              <p>Tempéraure max {{alldataweather.main.temp_max}}</p>
+              <p>Vitesse du vent {{alldataweather.wind.speed}}</p>
+              <p>Température du vent {{alldataweather.wind.deg}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <div class="panel panel-default" ng-init="getUsers()">
   <div class="panel-heading">
@@ -5,65 +74,17 @@
   </div>
   <div class="panel-body">
     <div class="row">
-    	<div ng-repeat="user in users">
-    		<div class="col-md-6">
-    			<div class="">
-    				<h4>{{user.name}}</h4>
-    				<p>{{user.fav}}</p>
+      <div ng-repeat="user in users">
+        <div class="col-md-6">
+          <div class="">
+            <h4>{{user.name}}</h4>
+            <p>{{user.fav}}</p>
             <p>id : {{user._id}}</p>
-    				<a class="btn btn-primary" href="#/users/details/{{user._id}}">View Details</a>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <form class="form-inline">
-    <div class="form-group">
-      <label for="searchCity"></label>
-      <input type="text" class="form-control" id="searchCity" placeholder="Sherbrooke" ng-model="searchCity">
-    </div>
-    <button type="submit" class="btn btn-default" ng-click="search()">Afficher Météo</button>
-  </form>
-</div>
-
-<div class="row">
-  <h2>Température pour une ville</h2>
-  <div ng-init="getWeather()">
-    <div class="col-md-6">
-      <div class="well">
-        <h4>{{name}}</h4>
-        <p>Température Actuelle {{main.temp}}</p>
-        <p>Pression Actuelle {{main.pressure}}</p>
-        <p>Humidité {{main.humidity}}</p>
-        <p>Tempéraure min {{main.temp_min}}</p>
-        <p>Tempéraure max {{main.temp_max}}</p>
-        <p>Vitesse du vent {{wind.speed}}</p>
-        <p>Température du vent {{wind.deg}}</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <h2>Température pour une liste de villes</h2>
-  <div ng-init="getAllWeather()">
-    <div ng-repeat="alldataweather in alldataweathers">
-      <div class="col-md-4">
-        <div class="well">
-          <h4>{{alldataweather.name}}</h4>
-          <p>Température Actuelle {{alldataweather.main.temp}}</p>
-          <p>Pression Actuelle {{alldataweather.main.pressure}}</p>
-          <p>Humidité {{alldataweather.main.humidity}}</p>
-          <p>Tempéraure min {{alldataweather.main.temp_min}}</p>
-          <p>Tempéraure max {{alldataweather.main.temp_max}}</p>
-          <p>Vitesse du vent {{alldataweather.wind.speed}}</p>
-          <p>Température du vent {{alldataweather.wind.deg}}</p>
+            <a class="btn btn-primary" href="#/users/details/{{user._id}}">View Details</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+

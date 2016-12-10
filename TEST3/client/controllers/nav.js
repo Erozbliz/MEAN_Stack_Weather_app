@@ -26,8 +26,8 @@ myApp.controller('NavController', ['$scope', '$http', '$location', '$routeParams
 
 	//change la nav bar si l'utilisateur est connecté
 	$scope.isLogged = function(){
-		var _id_session = sessionStorage.getItem("_id_session");
-		var name_session = sessionStorage.getItem("name_session");
+		var _id_session = localStorage.getItem("_id_session");
+		var name_session = localStorage.getItem("name_session");
 		if(_id_session==null){
 			//pas de var de session
 			//console.log('false');
@@ -40,9 +40,9 @@ myApp.controller('NavController', ['$scope', '$http', '$location', '$routeParams
 		}
 	}
 
-	
+
 	$scope.logOut = function() {
-    	sessionStorage.clear();
+    	localStorage.clear();
     	//window.location.href='#/users';
     }
 
