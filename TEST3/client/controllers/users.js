@@ -142,6 +142,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
     }
 
     $scope.myUserSession = localStorage.getItem("name_session");
+    $scope.myIdSession = localStorage.getItem("_id_session");
 
 
 
