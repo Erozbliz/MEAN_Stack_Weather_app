@@ -101,7 +101,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
     		 arrayListCity = mystr.split(',');
 
     	}else{
-    		arrayListCity =listCity;
+    		arrayListCity = null;
     	}
 		alldataweather = [];
 		for (i = 0; i < arrayListCity.length; i++) {
