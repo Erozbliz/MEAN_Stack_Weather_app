@@ -180,8 +180,8 @@ app.post('/api/users', (req, res) => {
 
 app.put('/api/users/:_id', (req, res) => {
 	var id = req.params._id;
-	var user = req.body;
-	User.updateUser(id, user, {}, (err, user) => {
+	var userb = req.body;
+	User.updateUser(id, userb, {}, (err, user) => {
 		if(err){
 			res.json("id inexistant ");
 		}

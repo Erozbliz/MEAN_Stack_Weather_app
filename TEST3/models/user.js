@@ -63,6 +63,7 @@ module.exports.getUserById = (id, callback) => {
 
 // Add User
 module.exports.addUser = (user, callback) => {
+	console.log('addUser');
 	User.create(user, callback);
 }
 
@@ -79,6 +80,7 @@ module.exports.updateUser = (id, user, options, callback) => {
 
 // Delete User
 module.exports.removeUser = (id, callback) => {
+	console.log('removeUser');
 	var query = {_id: id};
 	User.remove(query, callback);
 }
