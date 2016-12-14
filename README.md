@@ -5,6 +5,9 @@ Tutoriel : https://www.sitepoint.com, http://jasonwatmore.com/, Travis Tidwell t
 
 ## Le projet final est le TEST3
 
+## Client
+Utilisation : HTML, AngularJS, JS, JQuery, Bootstrap, CSS, Openweathermap, Mapbox.   
+
 ## Prérequis
 nodeJS, MongoDB, robomongo, postman extension(chrome),
 
