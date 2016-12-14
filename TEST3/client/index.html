@@ -18,8 +18,9 @@
   <!-- Icon fav mobile  -->
   <link rel="icon" type="image/png" href="fav_mobile.png" sizes="192x192">
 
-	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">-->
 	<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
 	<nav class="navbar navbar-default" ng-controller="NavController">
@@ -53,10 +54,21 @@
     		<div class="col-md-12">
     			<div ng-view></div>
     		</div>
-    	</div>
-     </div>
-    </div><!-- /.container -->
-  </div>
+      </div>
+    </div>
+  </div><!-- /.container -->
+
+
+    <footer class="footer">
+      <div class="container">
+        <br>
+        <p> 
+            <b>IFT 604 - 717  </b> &nbsp;&nbsp; 2016 / 2017
+            &nbsp;&nbsp; Utilisation : AngularJS, JS, Bootstrap, CSS, animate.css, HTML &nbsp;&nbsp; 
+        </p>
+      </div>
+    </footer>
+  
 
 	<script src="/bower_components/jquery/dist/jquery.js"></script>
 	<script src="/bower_components/angular/angular.js"></script>
