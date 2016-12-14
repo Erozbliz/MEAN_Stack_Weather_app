@@ -1,6 +1,6 @@
 <div class="panel panel-success" ng-show="myUserSession != null">
   <div class="panel-heading">
-    <h3 class="panel-title">Bonjour {{myUserSession}}, votre id est {{myIdSession}} (à garder pour vous identifier)</h3>
+    <h3 class="panel-title">Bonjour {{myUserSession}}, votre id est {{myIdSession}} (à garder pour vous identifier) <a class="btn " href="#/users/details/{{myIdSession}}">Mon Profil</span></a></h3>
   </div>
 </div>
 
@@ -80,7 +80,7 @@
             <h4>{{user.name}}</h4>
             <p>{{user.fav}}</p>
             <p>id : {{user._id}}</p>
-            <a class="btn btn-primary" href="#/users/details/{{user._id}}">View Details</a>
+            <a class="btn btn-primary" href="#/users/details/{{user._id}}">Détails</a>
           </div>
         </div>
       </div>
