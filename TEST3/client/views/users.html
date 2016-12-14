@@ -13,24 +13,27 @@
       <form class="form-inline">
         <div class="form-group">
           <label for="searchCity"></label>
-          <input type="text" class="form-control" id="searchCity" placeholder="Sherbrooke" ng-model="searchCity">
+          <input type="text" class="form-control" id="searchCity" ng-model="searchCity">
         </div>
         <button type="submit" class="btn btn-default" ng-click="search()">Afficher Météo</button>
       </form>
     </div>
     <div class="row">
-        <div ng-init="getWeather()">
+       <!-- <div ng-init="getWeather()"> -->
+        <div>
           <div class="col-md-6">
             <div class="well">
               <h4>{{name}}</h4>
-              <p>Température Actuelle {{main.temp}}</p>
-              <p>Pression Actuelle {{main.pressure}}</p>
-              <p>Humidité {{main.humidity}}</p>
-              <p>Tempéraure min {{main.temp_min}}</p>
-              <p>Tempéraure max {{main.temp_max}}</p>
-              <p>Vitesse du vent {{wind.speed}}</p>
-              <p>Température du vent {{wind.deg}}</p>
+              <p>Température Actuelle {{main.temp}}°C</p>
+              <p>Pression Actuelle {{main.pressure}} hPa</p>
+              <p>Humidité {{main.humidity}} %</p>
+              <p>Tempéraure min {{main.temp_min}}°C</p>
+              <p>Tempéraure max {{main.temp_max}}°C</p>
+              <p>Vitesse du vent {{wind.speed}} Km/h</p>
             </div>
+          </div>
+          <div class="col-md-6">
+                <div id='map'></div>
           </div>
         </div>
     </div>
@@ -50,13 +53,12 @@
           <div class="col-md-4">
             <div class="well">
               <h4>{{alldataweather.name}}</h4>
-              <p>Température Actuelle {{alldataweather.main.temp}}</p>
-              <p>Pression Actuelle {{alldataweather.main.pressure}}</p>
-              <p>Humidité {{alldataweather.main.humidity}}</p>
-              <p>Tempéraure min {{alldataweather.main.temp_min}}</p>
-              <p>Tempéraure max {{alldataweather.main.temp_max}}</p>
-              <p>Vitesse du vent {{alldataweather.wind.speed}}</p>
-              <p>Température du vent {{alldataweather.wind.deg}}</p>
+              <p>Température Actuelle {{alldataweather.main.temp}}°C</p>
+              <p>Pression Actuelle {{alldataweather.main.pressure}} hPa</p>
+              <p>Humidité {{alldataweather.main.humidity}} %</p>
+              <p>Tempéraure min {{alldataweather.main.temp_min}}°C</p>
+              <p>Tempéraure max {{alldataweather.main.temp_max}}°C</p>
+              <p>Vitesse du vent {{alldataweather.wind.speed}}Km/h</p>
             </div>
           </div>
         </div>

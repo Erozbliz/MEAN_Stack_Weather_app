@@ -94,34 +94,47 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
     };
 
     $scope.getAllWeather = function() {
-    	listCity = ['Quebec', "Montreal"];
+    	//listCity = ['Quebec', "Montreal"];
     	var mystr = localStorage.getItem("fav_session");
     	var arrayListCity = [];
+    	var alldataweather = [];
+    	
+
     	if(mystr!=null){
     		 arrayListCity = mystr.split(',');
 
     	}else{
     		arrayListCity = null;
     	}
-		alldataweather = [];
-		for (i = 0; i < arrayListCity.length; i++) {
-		    $http.get('http://api.openweathermap.org/data/2.5/weather?q='+arrayListCity[i]+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
-	        .success(function(data) {
-	          //console.log(data);
-	          alldataweather.push(data);
-	        })
-	        .error(function(data) {
-	          console.log('error: ' + data);
-	        });
-		}
-		//ajout dans le scope
-	 	$scope.alldataweathers = alldataweather;
-		//console.log(alldataweather);
+
+    	//si il existe bien des fav
+    	if(arrayListCity!=null){
+    		for (i = 0; i < arrayListCity.length; i++) {
+			    $http.get('http://api.openweathermap.org/data/2.5/weather?q='+arrayListCity[i]+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
+		        .success(function(data) {
+		          //console.log(data);
+		          alldataweather.push(data);
+		    
+		        })
+		        .error(function(data) {
+		          console.log('error: ' + data);
+		        });
+			}
+			//ajout dans le scope
+		 	$scope.alldataweathers = alldataweather;
+			//console.log(alldataweather);
+    	}
+		
+
+		
     };
 
 
     $scope.search = function() {
     	var myCity = angular.copy($scope.searchCity);
+    	var lat = "55.5";
+    	var lon = "-55.5";
+    	var map;
         console.log('search ' + myCity);
         $http.get('http://api.openweathermap.org/data/2.5/weather?q='+myCity+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
         .success(function(data) {
@@ -130,21 +143,35 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
           $scope.main = data.main;
           $scope.wind = data.wind;
           $scope.clouds = data.clouds;
+          lon=data.coord.lon;
+                  console.log("long search"+data.coord.lon);
+
+	      lat=data.coord.lat;
+
+	      //MAPBOX API
+			mapboxgl.accessToken = 'pk.eyJ1IjoiZXJvemJsaXoiLCJhIjoiZ1NRZ3E3VSJ9.eNN6tS7Qhbke9Moz0IkrfA';
+		   	map = new mapboxgl.Map({
+		        container: 'map',
+		        style: 'mapbox://styles/mapbox/streets-v9',
+		        center: [lon, lat], // starting position
+		        zoom: 9 // starting zoom
+		    });
         })
         .error(function(data) {
           console.log('error: ' + data);
         });
+
+
+        
     };
+
+
 
 
    
 
     $scope.myUserSession = localStorage.getItem("name_session");
     $scope.myIdSession = localStorage.getItem("_id_session");
-
-
-
-
 
 	
 }]);

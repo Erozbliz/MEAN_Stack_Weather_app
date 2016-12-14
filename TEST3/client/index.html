@@ -1,13 +1,13 @@
 <html  ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <!-- Chrome, Firefox OS, Opera and Vivaldi -->
-  <meta name="theme-color" content="#009688">
+  <meta name="theme-color" content="#2c3e50">
   <!-- Windows Phone -->
-  <meta name="msapplication-navbutton-color" content="#009688">
+  <meta name="msapplication-navbutton-color" content="#2c3e50">
   <!-- iOS Safari -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#009688">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#2c3e50">
   <meta name="author" content=" Weather Online">
   <meta name="description" content="Weather Online" />      
   <meta name="keywords" content="Weather Online">
@@ -21,10 +21,17 @@
 	<!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">-->
 	<link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+    <!-- mapbox  https://www.mapbox.com/mapbox-gl-js/api/-->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 <body>
 	<nav class="navbar navbar-default" ng-controller="NavController">
       <div class="container">
+          <!-- Si jamais il y a des changment du coté android -->
            <div ng-init="refreshSession()"></div>
 
         <div class="navbar-header">
@@ -58,6 +65,18 @@
     </div>
   </div><!-- /.container -->
 
+ <!-- <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div id='map' style='width: 400px; height: 300px;'></div>
+        </div>
+    </div>
+  </div>/.container -->
+
+
+
+
 
     <footer class="footer">
       <div class="container">
@@ -79,5 +98,11 @@
 	<script src="/controllers/genres.js"></script>
   <script src="/controllers/users.js"></script>
   <script src="/controllers/nav.js"></script>
+
+  <script>
+  
+  </script>
+
+
 </body>
 </html>
