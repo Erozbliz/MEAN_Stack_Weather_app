@@ -137,9 +137,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
     };
 
 
-    function parseFav(strFav){
-
-    }
+   
 
     $scope.myUserSession = localStorage.getItem("name_session");
     $scope.myIdSession = localStorage.getItem("_id_session");

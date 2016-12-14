@@ -47,6 +47,29 @@ myApp.controller('NavController', ['$scope', '$http', '$location', '$routeParams
     }
 
 
+     //On utilise l'id pour savoir si les favoris n'ont pas changé
+    $scope.refreshSession = function() {
+    	console.log(' refreshSession ');
+    	var id = localStorage.getItem("_id_session");
+		var loginName = "";
+		var request = $http.get('/api/users/'+id)
+		.success(function(response){
+			loginName = response.name;
+			localStorage.setItem("_id_session",response._id); //On sauvegarde
+			localStorage.setItem("name_session",response.name); //On sauvegarde
+			localStorage.setItem("fav_session",response.fav); //On sauvegarde
+			console.log(loginName);
+		})
+	    .error(function(response) {
+	      console.log('error refreshSession: ' + response);
+	    });
+    }
+
+  
+
+
+
+
   /*	$scope.myVar = false;
 
     $scope.$watch('myVar', function() {
@@ -59,3 +82,5 @@ myApp.controller('NavController', ['$scope', '$http', '$location', '$routeParams
 */
 	
 }]);
+
+
