@@ -160,10 +160,75 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
         .error(function(data) {
           console.log('error: ' + data);
         });
-
-
-        
     };
+
+    //api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=83512f0ca80b87807f61db32870c85d7&units=metric
+    $scope.myPositionGps = function() {
+
+    	var lat = "55.5";
+    	var lon = "-55.5";
+    	var msg = "";
+    	var options = {
+		  enableHighAccuracy: true,
+		  timeout: 10000,
+		  maximumAge: 0
+		};
+
+    	if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(
+	        function(position) {
+			  //do_something(position.coords.latitude, position.coords.longitude);
+			  		lat = position.coords.latitude;
+			  		lon = position.coords.longitude;
+				  	console.log("lat:"+lat +" long:"+lon);
+
+				  	mapBoxGenerate(lat, lon);
+				}, 
+				error, 
+				options
+			);
+	    } else { 
+	        msg = "Geolocation is not supported by this browser.";
+	        alert(msg);
+	        console.log(msg);
+	    }
+
+    	
+    };
+
+    //Genere la carte en fonction de la latitude et longitude
+    function mapBoxGenerate(lat, lon){
+    	var map;
+    	console.log("lat:"+lat +" long:"+lon);
+        $http.get('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
+        .success(function(data) {
+          console.log(data);
+          $scope.name = data.name;
+          $scope.main = data.main;
+          $scope.wind = data.wind;
+          $scope.clouds = data.clouds;
+
+	      	//MAPBOX API
+			mapboxgl.accessToken = 'pk.eyJ1IjoiZXJvemJsaXoiLCJhIjoiZ1NRZ3E3VSJ9.eNN6tS7Qhbke9Moz0IkrfA';
+		   	map = new mapboxgl.Map({
+		        container: 'map',
+		        style: 'mapbox://styles/mapbox/streets-v9',
+		        center: [lon, lat], // starting position
+		        zoom: 9 // starting zoom
+		    });
+        })
+        .error(function(data) {
+          console.log('error: ' + data);
+        });
+
+    }
+
+    //Si il ya des erreur avec le gps
+	function error(err) {
+		alert(err.message);
+	  console.warn('ERROR(' + err.code + '): ' + err.message);
+	};
+
 
 
 
