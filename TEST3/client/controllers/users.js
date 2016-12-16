@@ -32,27 +32,30 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 
 	$scope.loginUser = function(){
 		var id = angular.copy($scope.myid);
-		console.log($scope.user);
-		$http.get('/api/users/'+id)
-		.success(function(response){
-			loginId = response._id;
-			if(loginId==id){
-				console.log("ok "+loginId);
-				localStorage.setItem("_id_session",response._id); //On sauvegarde
-				localStorage.setItem("name_session",response.name); //On sauvegarde
-				localStorage.setItem("fav_session",response.fav); //On sauvegarde
-				boleanvar=true;
-				//alert("redirect");
-	    		window.location.href='#/users';
-			}else{
-				console.log("erreur id"+response);
-
-			}
-		})
-	    .error(function(response) {
-	      console.log('error: ' + response);
-	    });
-
+		if(id!=null){
+			console.log($scope.user);
+			$http.get('/api/users/'+id)
+			.success(function(response){
+				loginId = response._id;
+				if(loginId==id){
+					console.log("ok "+loginId);
+					localStorage.setItem("_id_session",response._id); //On sauvegarde
+					localStorage.setItem("name_session",response.name); //On sauvegarde
+					localStorage.setItem("fav_session",response.fav); //On sauvegarde
+					boleanvar=true;
+					//alert("redirect");
+		    		window.location.href='#/users';
+				}else{
+					console.log("erreur id"+response);
+					$(".erreur").text("Erreur id introuvable");
+				}
+			})
+		    .error(function(response) {
+		      console.log('error: ' + response);
+		    });
+		}else{
+			$(".erreur").text("Erreur id vide");
+		}
 
 	}
 
