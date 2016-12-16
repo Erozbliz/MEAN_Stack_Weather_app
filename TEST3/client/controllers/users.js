@@ -82,6 +82,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
       $http.get('http://api.openweathermap.org/data/2.5/weather?q=Sherbrooke&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
         .success(function(data) {
           console.log(data);
+          $scope.weather = data.weather[0];
           $scope.name = data.name;
           $scope.main = data.main;
           $scope.wind = data.wind;
@@ -139,6 +140,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
         $http.get('http://api.openweathermap.org/data/2.5/weather?q='+myCity+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
         .success(function(data) {
           console.log(data);
+          $scope.weather = data.weather[0];
           $scope.name = data.name;
           $scope.main = data.main;
           $scope.wind = data.wind;
@@ -154,7 +156,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 		        container: 'map',
 		        style: 'mapbox://styles/mapbox/streets-v9',
 		        center: [lon, lat], // starting position
-		        zoom: 9 // starting zoom
+		        zoom: 11 // starting zoom
 		    });
         })
         .error(function(data) {
@@ -203,6 +205,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
         $http.get('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
         .success(function(data) {
           console.log(data);
+          $scope.weather = data.weather[0];
           $scope.name = data.name;
           $scope.main = data.main;
           $scope.wind = data.wind;

@@ -25,7 +25,7 @@
         <div>
           <div class="col-md-6">
             <div class="well">
-              <h4>{{name}}</h4>
+              <h4><img src="http://openweathermap.org/img/w/{{weather.icon}}.png"/> {{name}} </h4>
               <p>Température Actuelle {{main.temp}}°C</p>
               <p>Pression Actuelle {{main.pressure}} hPa</p>
               <p>Humidité {{main.humidity}} %</p>
@@ -55,7 +55,7 @@
         <div ng-repeat="alldataweather in alldataweathers">
           <div class="col-md-4">
             <div class="well">
-              <h4>{{alldataweather.name}}</h4>
+              <h4><img src="http://openweathermap.org/img/w/{{alldataweather.weather[0].icon}}.png"/>  {{alldataweather.name}}</h4>
               <p>Température Actuelle {{alldataweather.main.temp}}°C</p>
               <p>Pression Actuelle {{alldataweather.main.pressure}} hPa</p>
               <p>Humidité {{alldataweather.main.humidity}} %</p>
