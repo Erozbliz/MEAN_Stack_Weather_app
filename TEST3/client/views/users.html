@@ -1,4 +1,4 @@
-<div class="panel panel-success" ng-show="myUserSession != null">
+<div class="panel panel-success animated bounceInLeft" ng-show="myUserSession != null">
   <div class="panel-heading">
     <h3 class="panel-title">Bonjour {{myUserSession}}, votre id est {{myIdSession}} (à garder pour vous identifier) <a class="btn " href="#/users/details/{{myIdSession}}">Mon Profil</span></a></h3>
   </div>
@@ -15,8 +15,8 @@
           <label for="searchCity"></label>
           <input type="text" class="form-control" id="searchCity" ng-model="searchCity">
         </div>
-        <button type="submit" class="btn btn-default" ng-click="search()">Afficher Météo</button>
-        <button type="submit" class="btn btn-warning" ng-click="myPositionGps()"><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span> GPS</button>
+        <button type="submit" class="btn btn-default" id="btnSearchAnimate" ng-click="search()">Afficher Météo</button>
+        <button type="submit" class="btn btn-warning" id="btnGpsAnimate" ng-click="myPositionGps()"><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span> GPS</button>
       </form>
 
     </div>

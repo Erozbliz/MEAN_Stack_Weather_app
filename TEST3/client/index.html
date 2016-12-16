@@ -20,6 +20,7 @@
 
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="css/style.css">
+  <link href="css/animate.min.css" rel="stylesheet">
   <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
 
 
@@ -46,9 +47,9 @@
         </div>
         <div  id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/users/login" ng-show="!isLogged()">Connexion</a></li>
-            <li><a href="#/users/add" ng-show="!isLogged()">Inscription</a></li>
-            <li><a href="#/users/logout" ng-click="logOut()" ng-show="isLogged()">Deconnexion</a></li>
+            <li><a href="#/users/login" ng-show="!isLogged()" class="animated zoomIn">Connexion</a></li>
+            <li><a href="#/users/add" ng-show="!isLogged()" class="animated zoomIn">Inscription</a></li>
+            <li><a href="#/users/logout" ng-click="logOut()" ng-show="isLogged()" class="animated zoomIn">Deconnexion</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -95,14 +96,18 @@
 	<script src="/bower_components/angular/angular.js"></script>
 	<script src="/bower_components/angular-route/angular-route.js"></script>
 	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- Animate daneden (Animation sur click (en JQuery))-->
 	<script src="/app.js"></script>
   <script src="/controllers/users.js"></script>
   <script src="/controllers/nav.js"></script>
-
-  <script>
-  
+  <!-- JS qu'on doit charger après le chargement de la page entiere-->
+  <script type="text/javascript">
+  (function() {
+      var script = document.createElement('script')
+      script.setAttribute("type", "text/javascript")
+      script.setAttribute("src", "js/animate.js")
+      document.getElementsByTagName("head")[0].appendChild(script)
+  })();
   </script>
-
-
 </body>
 </html>
