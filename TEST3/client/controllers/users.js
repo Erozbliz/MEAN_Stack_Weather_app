@@ -133,7 +133,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 		
     };
 
-
+    //Bouton Afficher météo
     $scope.search = function() {
     	var myCity = angular.copy($scope.searchCity);
     	var lat = "55.5";
@@ -149,11 +149,10 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
           $scope.wind = data.wind;
           $scope.clouds = data.clouds;
           lon=data.coord.lon;
-                  console.log("long search"+data.coord.lon);
-
+          console.log("long search "+data.coord.lon);
 	      lat=data.coord.lat;
 
-	      //MAPBOX API
+	      	//MAPBOX API
 			mapboxgl.accessToken = 'pk.eyJ1IjoiZXJvemJsaXoiLCJhIjoiZ1NRZ3E3VSJ9.eNN6tS7Qhbke9Moz0IkrfA';
 		   	map = new mapboxgl.Map({
 		        container: 'map',
@@ -161,6 +160,9 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 		        center: [lon, lat], // starting position
 		        zoom: 11 // starting zoom
 		    });
+
+		   	//GENERATION DU GRAPHIQUE type 1
+		    printGraphTemp(1,0,0,myCity);
         })
         .error(function(data) {
           console.log('error: ' + data);
@@ -188,6 +190,8 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 				  	console.log("lat:"+lat +" long:"+lon);
 				  	//Genere la carte en fonction de la latitude et longitude
 				  	mapBoxGenerate(lat, lon);
+				  	//GENERATION DU GRAPHIQUE type 0
+		    		printGraphTemp(0,lat,lon,"");
 				}, 
 				error, 
 				options
@@ -236,41 +240,19 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 	};
 
 
-	//Test pour graph
+	//Test pour graph pas utilsé
 	$scope.graphTemp = function() {
     	var myCity = angular.copy($scope.searchCity);
-    	var lat = "45";
-    	var lon = "-71";
-    	var alldataweather = [];
-    	var map;
         console.log('search ' + myCity);
         $http.get('http://api.openweathermap.org/data/2.5/forecast?q='+myCity+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
         .success(function(data) {
           console.log(data);
-          alldataweather.push(data);
-          lon=data.city.coord.lon;
-	      lat=data.city.coord.lat;
-
-	      //MAPBOX API
-			mapboxgl.accessToken = 'pk.eyJ1IjoiZXJvemJsaXoiLCJhIjoiZ1NRZ3E3VSJ9.eNN6tS7Qhbke9Moz0IkrfA';
-		   	map = new mapboxgl.Map({
-		        container: 'map',
-		        style: 'mapbox://styles/mapbox/streets-v9',
-		        center: [lon, lat], // starting position
-		        zoom: 11 // starting zoom
-		    });
-
 		   	//exemple pour une température //data.list[1].dt_txt
 		    var temp1 = data.list[0].main.temp;
 		    var day = data.list[0].dt_txt;
 		    var daySm = day.slice(0,-9);
-		    //console.log("temp"+temp1);
-		    //var j = 0;
-		    /*var arrayTime = [];
-		    for(j=0;j<6;j++){
-		    	arrayTemp.push(data.list[6].main.temp);
-		    }*/
-
+		
+		    //data pour le graphiques
 		    $ladata = [              
 						{ label: "00:00",  y: data.list[0].main.temp  },
 						{ label: "03:00", y: data.list[1].main.temp  },
@@ -282,7 +264,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 						{ label: "21:00",  y: data.list[7].main.temp  },
 						{ label: "24:00",  y: data.list[8].main.temp  }
 					];
-		  //chart
+		 //chart
 		 $scope.chart = new CanvasJS.Chart("chartContainerJs", 
          {
             title:{
@@ -301,6 +283,58 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
           console.log('error: ' + data);
         });
     };
+
+
+    //Génere un graphique en fonction si type 0 alors url avec latitude et longitude sinon url avec le nom de la ville
+    function printGraphTemp(type, lat, long, ville){
+    	var typeUrl = "";
+    	if(type==0){
+    		console.log('TYPE 0 LAT ' + lat+' LONG '+long);
+    		typeUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+long+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric';
+    	}else{
+    		console.log('TYPE 1 VILLE ' + ville);
+    		typeUrl = 'http://api.openweathermap.org/data/2.5/forecast?q='+ville+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric';
+    	}
+
+        $http.get(typeUrl)
+        .success(function(data) {
+          console.log(data);
+		   	//exemple pour une température //data.list[1].dt_txt
+		    var temp1 = data.list[0].main.temp;
+		    var day = data.list[0].dt_txt;
+		    var daySm = day.slice(0,-9);
+		
+		    //data pour le graphiques
+		    $ladata = [              
+						{ label: "00:00",  y: data.list[0].main.temp  },
+						{ label: "03:00", y: data.list[1].main.temp  },
+						{ label: "06:00", y: data.list[2].main.temp  },
+						{ label: "09:00",  y: data.list[3].main.temp  },
+						{ label: "12:00",  y: data.list[4].main.temp  },
+						{ label: "15:00",  y: data.list[5].main.temp  },
+						{ label: "18:00",  y: data.list[6].main.temp  },
+						{ label: "21:00",  y: data.list[7].main.temp  },
+						{ label: "24:00",  y: data.list[8].main.temp  }
+					];
+		 //chart
+		 $scope.chart = new CanvasJS.Chart("chartContainerJs", 
+         {
+            title:{
+            text: "Température "+daySm +""
+            },
+             data: [
+            {
+              type: "line",
+              dataPoints: $ladata
+            }
+            ]
+          });
+           $scope.chart.render();
+        })
+        .error(function(data) {
+          console.log('error: ' + data);
+        });
+    }
 
 
 

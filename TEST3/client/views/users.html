@@ -17,7 +17,7 @@
         </div>
         <button type="submit" class="btn btn-default" id="btnSearchAnimate" ng-click="search()">Afficher Météo</button>
         <button type="submit" class="btn btn-warning" id="btnGpsAnimate" ng-click="myPositionGps()"><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span> GPS</button>
-        <button type="submit" class="btn btn-warning" id="" ng-click="graphTemp()">T</button>
+        <!--<button type="submit" class="btn btn-warning" id="" ng-click="graphTemp()">T</button>-->
       </form>
 
     </div>
@@ -103,9 +103,13 @@
   (function() {
       var script = document.createElement('script');
       script.setAttribute("type", "text/javascript");
-      script.setAttribute("src", "../js/animate.js");
-      script.setAttribute("type", "text/javascript");
       script.setAttribute("src", "../js/canvasjs/canvasjs.min.js");
+      document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+   (function() {
+      var script = document.createElement('script');
+      script.setAttribute("type", "text/javascript");
+      script.setAttribute("src", "../js/animate.js");
       document.getElementsByTagName("head")[0].appendChild(script);
   })();
   </script>

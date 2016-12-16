@@ -27,6 +27,7 @@ function animationHover(element, animation){
 }
 
 $(document).ready(function(){
+    alert("ee");
 	$('#btnSearchAnimate').each(function() {
         animationClick(this, 'bounceIn');
     });
