@@ -17,6 +17,7 @@
         </div>
         <button type="submit" class="btn btn-default" id="btnSearchAnimate" ng-click="search()">Afficher Météo</button>
         <button type="submit" class="btn btn-warning" id="btnGpsAnimate" ng-click="myPositionGps()"><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span> GPS</button>
+        <button type="submit" class="btn btn-warning" id="" ng-click="graphTemp()">T</button>
       </form>
 
     </div>
@@ -37,6 +38,9 @@
           <div class="col-md-6">
               <!-- MAPBOX -->
               <div id='map'></div>
+          </div>
+          <div class="col-md-12">
+            <div id="chartContainerJs" style="height: 300px; width: 100%;"></div>
           </div>
         </div>
     </div>
@@ -92,12 +96,16 @@
     </div>
   </div>
 </div>
+  <!--<script type="text/javascript" src="../js/canvasjs/canvasjs.min.js"></script>-->
+    <!-- JS qu'on doit charger après le chargement de la page entiere-->
 
   <script type="text/javascript">
   (function() {
-      var script = document.createElement('script')
-      script.setAttribute("type", "text/javascript")
-      script.setAttribute("src", "../js/animate.js")
-      document.getElementsByTagName("head")[0].appendChild(script)
+      var script = document.createElement('script');
+      script.setAttribute("type", "text/javascript");
+      script.setAttribute("src", "../js/animate.js");
+      script.setAttribute("type", "text/javascript");
+      script.setAttribute("src", "../js/canvasjs/canvasjs.min.js");
+      document.getElementsByTagName("head")[0].appendChild(script);
   })();
   </script>

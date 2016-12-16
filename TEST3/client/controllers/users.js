@@ -186,7 +186,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 			  		lat = position.coords.latitude;
 			  		lon = position.coords.longitude;
 				  	console.log("lat:"+lat +" long:"+lon);
-
+				  	//Genere la carte en fonction de la latitude et longitude
 				  	mapBoxGenerate(lat, lon);
 				}, 
 				error, 
@@ -234,6 +234,73 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 		alert(err.message);
 	  console.warn('ERROR(' + err.code + '): ' + err.message);
 	};
+
+
+	//Test pour graph
+	$scope.graphTemp = function() {
+    	var myCity = angular.copy($scope.searchCity);
+    	var lat = "45";
+    	var lon = "-71";
+    	var alldataweather = [];
+    	var map;
+        console.log('search ' + myCity);
+        $http.get('http://api.openweathermap.org/data/2.5/forecast?q='+myCity+'&APPID=83512f0ca80b87807f61db32870c85d7&units=metric')
+        .success(function(data) {
+          console.log(data);
+          alldataweather.push(data);
+          lon=data.city.coord.lon;
+	      lat=data.city.coord.lat;
+
+	      //MAPBOX API
+			mapboxgl.accessToken = 'pk.eyJ1IjoiZXJvemJsaXoiLCJhIjoiZ1NRZ3E3VSJ9.eNN6tS7Qhbke9Moz0IkrfA';
+		   	map = new mapboxgl.Map({
+		        container: 'map',
+		        style: 'mapbox://styles/mapbox/streets-v9',
+		        center: [lon, lat], // starting position
+		        zoom: 11 // starting zoom
+		    });
+
+		   	//exemple pour une température //data.list[1].dt_txt
+		    var temp1 = data.list[0].main.temp;
+		    var day = data.list[0].dt_txt;
+		    var daySm = day.slice(0,-9);
+		    //console.log("temp"+temp1);
+		    //var j = 0;
+		    /*var arrayTime = [];
+		    for(j=0;j<6;j++){
+		    	arrayTemp.push(data.list[6].main.temp);
+		    }*/
+
+		    $ladata = [              
+						{ label: "00:00",  y: data.list[0].main.temp  },
+						{ label: "03:00", y: data.list[1].main.temp  },
+						{ label: "06:00", y: data.list[2].main.temp  },
+						{ label: "09:00",  y: data.list[3].main.temp  },
+						{ label: "12:00",  y: data.list[4].main.temp  },
+						{ label: "15:00",  y: data.list[5].main.temp  },
+						{ label: "18:00",  y: data.list[6].main.temp  },
+						{ label: "21:00",  y: data.list[7].main.temp  },
+						{ label: "24:00",  y: data.list[8].main.temp  }
+					];
+		  //chart
+		 $scope.chart = new CanvasJS.Chart("chartContainerJs", 
+         {
+            title:{
+            text: "Température "+daySm +""
+            },
+             data: [
+            {
+              type: "line",
+              dataPoints: $ladata
+            }
+            ]
+          });
+           $scope.chart.render();
+        })
+        .error(function(data) {
+          console.log('error: ' + data);
+        });
+    };
 
 
 
