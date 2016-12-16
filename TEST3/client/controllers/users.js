@@ -214,7 +214,7 @@ myApp.controller('UsersController', ['$scope', '$http', '$location', '$routePara
 		        container: 'map',
 		        style: 'mapbox://styles/mapbox/streets-v9',
 		        center: [lon, lat], // starting position
-		        zoom: 9 // starting zoom
+		        zoom: 14 // starting zoom
 		    });
         })
         .error(function(data) {

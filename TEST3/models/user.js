@@ -22,43 +22,6 @@ module.exports.getUsers = (callback, limit,err) => {
 // Get User
 module.exports.getUserById = (id, callback) => {
 	User.findById(id, callback); //true
-	/* User.findById(id, function(err, brother, res) {
-
-    });*/
-    //User.findById( {_id : id }, function(err, callback){
-    //console.log(callback.name);  
-    // Will show your array of Menu Categories
-    // No further queries required
-    /*User.findOne({ _id: id }, function ( err, user) {
-    	err.send(user);
-    });*/
-
-    /*User.findById(id, function(error, user) {
-      //assert.ifError(error);
-      //assert.ok(doc);
-      //console.log(JSON.stringify(doc));
-      console.log(id);
-      console.log('done');
-     // process.exit(0);
-    });*/
-
-  /*  User.findOne({ '_id': '5844e7996326c0fb6cda1159' },  function (err, user, next) {
-	  if (err) return handleError(err);
-	  if(user) {
-	  	console.log('%s %s', user.name, user.fav);
-	  }else{
-	  	console.log("Pb");
-	  }
-	  //next();
-	
-	});*/
-
-
-
-
-
-
-
 }
 
 // Add User

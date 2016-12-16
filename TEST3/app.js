@@ -42,39 +42,6 @@ app.get('/api/users/:_id', (req, res, callback) => {
 	//User.findById(req.params._id, callback);
 });
 
-//pour test
-/*
-app.get('/hello', function(req, res, next){
-	User.findOne({ '_id': '5844e7996326c0fb6cda1159r' },  function (err, user, next) {
-	  if (err){
-	  	console.log('error');
-	  	res.json("id inexistant ");
-	  } else if(user) {
-	  	console.log('%s %s', user.name, user.fav);
-	  	res.json(user);
-	  }else{
-	  	console.log("Pb");
-	  }
-	});
-});
-*/
-
-//Pour la session (pour la barre de navigation)
-app.get('/api/isLogged/:_id', function(req, res, next){
-	User.findOne({ '_id': req.params._id },  function (err, user, next) {
-	  if (err){
-	  	console.log('error');
-	  	res.json("id inexistant");
-	  } else if(user) {
-	  	console.log('Utilisateur %s %s est connecté', user.name, user.fav);
-	  	res.json(user);
-	  }else{
-	  	console.log("Pb");
-	  }
-	});
-});
-
-
 
 app.post('/api/users', (req, res) => {
 	var user = req.body;
@@ -106,6 +73,38 @@ app.delete('/api/users/:_id', (req, res) => {
 		res.json(user);
 	});
 });
+
+
+//Pour la session (pour la barre de navigation)
+app.get('/api/isLogged/:_id', function(req, res, next){
+	User.findOne({ '_id': req.params._id },  function (err, user, next) {
+	  if (err){
+	  	console.log('error');
+	  	res.json("id inexistant");
+	  } else if(user) {
+	  	console.log('Utilisateur %s %s est connecté', user.name, user.fav);
+	  	res.json(user);
+	  }else{
+	  	console.log("Pb");
+	  }
+	});
+});
+//pour test
+/*
+app.get('/hello', function(req, res, next){
+	User.findOne({ '_id': '5844e7996326c0fb6cda1159r' },  function (err, user, next) {
+	  if (err){
+	  	console.log('error');
+	  	res.json("id inexistant ");
+	  } else if(user) {
+	  	console.log('%s %s', user.name, user.fav);
+	  	res.json(user);
+	  }else{
+	  	console.log("Pb");
+	  }
+	});
+});
+*/
 
 app.listen(3000);
 console.log('Running on port 3000...');
