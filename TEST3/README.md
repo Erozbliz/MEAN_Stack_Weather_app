@@ -1,5 +1,12 @@
+## Require ##
+npm (nodeJS), mongodb.
 
-[https://www.youtube.com/watch?v=eB9Fq9I5ocs](http://https://www.youtube.com/watch?v=eB9Fq9I5ocs "https://www.youtube.com/watch?v=eB9Fq9I5ocs")
 
 ## Usage ##
-Just clone or download and run **npm install** and then **node app** to start
+First create a database with mongoDB **test** (check app.js **mongoose.connect('mongodb://localhost/test');**)<br>
+Run mongoDB with **mongod** command.<br>
+Download and run **npm install** and then **node app** to start.
+
+## Test ##
+Use postman from any computer and follow exemples from the capture's folder<br>
+Also you can see routing in app.js
