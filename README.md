@@ -1,7 +1,11 @@
 ## Présentation
 
 MEAN STACK
-Tutoriel : https://www.sitepoint.com, http://jasonwatmore.com/, Travis Tidwell tutorial, RESTful API From Scratch Using Node, Express and MongoDB Brad Traversy
+Tutoriel : <br />
+https://www.sitepoint.com<br />
+http://jasonwatmore.com/<br />
+Travis Tidwell tutorial<br />
+Express and MongoDB Brad Traversy<br />
 
 ## Le projet final est le TEST3
 
