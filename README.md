@@ -19,7 +19,7 @@ Faire un : "node www" pour lancer le serveur(pour TEST2 dossier bin)<br />
 Faire un : "node app.js" pour lancer le serveur(pour TEST3)<br />
 Créer l'arborescence "C:\data\db" (c'est ici que la bdd va se trouver)<br />
 
-Autre : <br />
+Autre :<br />
 Lancer la base de donnée MongoDB <br />
 C:\Program Files\MongoDB\Server\3.2\bin<br />
 et faire "mongod.exe"<br />
