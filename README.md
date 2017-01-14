@@ -43,6 +43,12 @@ npm install ms
 
 ## Capture exemple REST
 ![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/post.JPG?raw=true)
+
+
+
+
+## Capture Web Client
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/client%20web.JPG?raw=true)
 ![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/mob1.JPG?raw=true)
 ![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/mob2.JPG?raw=true)
 ![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/mob3.JPG?raw=true)
@@ -53,11 +59,10 @@ npm install ms
 
 
 
-## Capture Web Client
-![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/client%20web.JPG?raw=true)
-![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/client%20web.JPG?raw=true)
-
-
-
 ## Capture ANDROID Client (Intégration de MeanStack_Android_Client)
 ![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/android.PNG?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/android1.PNG?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/android2.PNG?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/android3.png?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/android4.png?raw=true)
+
