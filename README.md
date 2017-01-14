@@ -41,14 +41,23 @@ installer yo</br>
 error :   at Function.Module._resolveFilename (module.j...</br>
 npm install ms
 
-## Capture exemple
+## Capture exemple REST
 ![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/post.JPG?raw=true)
-![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/get.JPG?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/mob1.JPG?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/mob2.JPG?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/mob3.JPG?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/mob4.JPG?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/mobile1.png?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/mobile2.png?raw=true)
 
 
 
-## Capture IHM
+
+## Capture Web Client
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/client%20web.JPG?raw=true)
 ![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/client%20web.JPG?raw=true)
 
 
 
+## Capture ANDROID Client (Intégration de MeanStack_Android_Client)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/android.PNG?raw=true)
