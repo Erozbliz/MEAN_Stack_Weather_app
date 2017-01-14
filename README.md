@@ -1,15 +1,15 @@
 ## Présentation
 
 MEAN STACK
-Tutoriel : https://www.sitepoint.com, http://jasonwatmore.com/, Travis Tidwell tutorial, RESTful API From Scratch Using Node, Express and MongoDB Brad Traversy
+Tutoriel : https://www.sitepoint.com  http://jasonwatmore.com/ Travis Tidwell tutorial  RESTful API From Scratch Using Node  Express and MongoDB Brad Traversy
 
-## Le projet final est le TEST3
+## <b>Le projet final est le TEST3</b>
 
 ## Client
 Utilisation : HTML, AngularJS, JS, JQuery, Bootstrap, CSS, Openweathermap, Mapbox.   
 
 ## Prérequis
-nodeJS, MongoDB, robomongo, postman extension(chrome),
+nodeJS, MongoDB, robomongo, postman extension(chrome).
 
 
 ## Installation démo
@@ -19,24 +19,10 @@ Faire un : "node www" pour lancer le serveur(pour TEST2 dossier bin)<br />
 Faire un : "node app.js" pour lancer le serveur(pour TEST3)<br />
 Créer l'arborescence "C:\data\db" (c'est ici que la bdd va se trouver)<br />
 
-
+Autre : <br />
 Lancer la base de donnée MongoDB <br />
 C:\Program Files\MongoDB\Server\3.2\bin<br />
 et faire "mongod.exe"<br />
-
-## Installation projet
-- Faire un : "npm install" dans dossier client et serveur<br />
-- Lancer la base de donnée MongoDB avec "mongod"<br />
-(ou C:\Program Files\MongoDB\Server\3.2\bin<br />
-et faire "mongod.exe")<br />
-- Faire un : "node index.js" pour lancer simplement le serveur(dans le dossier serveur)<br /><br />
-- Pour client (Pas encore testé)
-<br />Faire un : "npm install -g yo"
-<br />Faire un : "npm install -g generator-angular"
-<br />Faire un : "bower install --save restangular"  -> option restangular
-
-- Faire un : "grunt serve" pour lancer le serveur + client(dans le dossier client)<br />
-
 
 ## Informations complémentaires
 
@@ -52,8 +38,17 @@ TASKKILL /PID 10856 -f <br />
 <br />
 installer yo</br>
 </br>
-si pb :   at Function.Module._resolveFilename (module.j...</br>
+error :   at Function.Module._resolveFilename (module.j...</br>
 npm install ms
+
+## Capture exemple
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/post.JPG?raw=true)
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/get.JPG?raw=true)
+
+
+
+## Capture IHM
+![alt tag](https://github.com/Erozbliz/MEAN_stack_test/blob/master/TEST3/capture/client%20web.JPG?raw=true)
 
 
 
